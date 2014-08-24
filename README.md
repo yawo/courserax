@@ -2,6 +2,7 @@ courserax
 =========
 
 Courserax firefox addon (https://addons.mozilla.org/fr/firefox/addon/courserax/)
+
 A Bulk downloader for your courses on Coursera.org
 
 Have you ever been in a situation where you needed to take lot of lecture on your computer(or usb memory) because you may lack internet soon ?
