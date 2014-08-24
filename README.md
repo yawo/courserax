@@ -17,6 +17,6 @@ Courserax is here to solve your problem !
 
 Enjoy !
 
-If you like it, please leave a comment or mail me... mcguy2008 --//gmail//--.
+If you like it, please leave a review on the addon page or mail me... mcguy2008 --//gmail//--.
 
 Peace and Love for a better world ! 
