@@ -1,9 +1,9 @@
 {
   "name": "courserax",
-  "title": "courserax",
+  "title": "coursera video lecture downloader",
   "id": "jid1-ATv8W39AwP2fwQ",
   "description": "a basic add-on",
-  "author": "",
+  "author": "Yawo Guillaume KPOTUFE",
   "license": "MPL 2.0",
-  "version": "0.1"
+  "version": "1.1"
 }
