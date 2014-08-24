@@ -5,7 +5,7 @@ Courserax firefox addon (https://addons.mozilla.org/fr/firefox/addon/courserax/)
 
 A Bulk downloader for your courses on Coursera.org
 
-Have you ever been in a situation where you needed to take lot of lecture on your computer(or usb memory) because you may lack internet soon ?
+Have you ever been in a situation where you needed to take lot of lectures on your computer _(or usb memory)_ because you may lack internet soon ?
 It gets quickly annoying to download one by one those mp4 from the video lectures page.
 
 Courserax is here to solve your problem !
@@ -18,6 +18,6 @@ Courserax is here to solve your problem !
 
 Enjoy !
 
-If you like it, please leave a review on the addon page or mail me... mcguy2008 --//gmail//--.
+If you like it, please *leave a review on the addon page or mail me.*.. mcguy2008 --//gmail//--.
 
 Peace and Love for a better world ! 
