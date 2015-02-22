@@ -19,7 +19,9 @@ self.port.on("getLinks", function() {
                 el.querySelector("a.lecture-link").getAttribute('data-lecture-id'),
                 el.querySelector(".course-lecture-item-resource a:last-child").getAttribute('href'), //mp4
                 true,
-                el.querySelector(".course-lecture-item-resource a[title='Subtitles (srt)']").getAttribute('href')] //srt
+                getHref(el.querySelector(".course-lecture-item-resource a[title='Subtitles (srt)']")), //srt
+                getHref(el.querySelector(".course-lecture-item-resource a[title='Script PDF']")) //pdf
+              ]
           });
           sec['slinks']=slinks;
         }
@@ -34,3 +36,7 @@ self.port.on("getLinks", function() {
   }
 });
 
+function getHref(elmt){
+  if(elmt) return elmt.getAttribute('href');
+  else return null;
+}

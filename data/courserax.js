@@ -1,7 +1,6 @@
 // courserax.js - mcguy's module
 // author: mcguy
 
-
 function updateObj(context_obj){
     var n=0;
      for(i=0;i<context_obj.links.length;i++){
@@ -19,7 +18,7 @@ function updateObj(context_obj){
 
 function init(){
     vl  = document.getElementById("mp4links");
-    vl.innerHTML = "<input type='checkbox'> No link yet";
+    //vl.innerHTML = "<input type='checkbox'> No link yet";
     var checkall = document.getElementById("checkall");
     checkall.checked=true;
     checkall.onchange = function(e){
@@ -48,10 +47,15 @@ self.port.on("progressinfo", function(pi){
 });
 
 self.port.on("showLinks", function(obj) {
+   if(document.querySelector("#mp4links table")){
+     console.log("already initiallized")
+     return;
+   }
    if(obj && obj.links && obj.links.length>0){
        //context_obj = obj;
        vl  = document.getElementById("mp4links");
        //vl.innerHTML = "";
+       if(document.getElementById("mp4links"))
        var innerHTML = "<table border='0'>";
        for(i=0;i<obj.links.length;i++){
             var section = obj.links[i];
@@ -66,17 +70,19 @@ self.port.on("showLinks", function(obj) {
             }
         }
        innerHTML += "</table>"
-       innerHTML += "<br/><button id='sendselected0' value='Download video only'>Download video only</button>  or <button id='sendselected_subtitles0' value='Download video and subtitles'>Download video and subtitles</button>";
-       innerHTML ="<button id='sendselected1' value='Download video only' >Download video only</button> or <button id='sendselected_subtitles1' value='Download video and subtitles'>Download video and subtitles</button> <br/>"+innerHTML;
+       buttonsHTML ="<button class='sendselected' value='Download video only' >Download </button> with <input type='checkbox' checked='true' id='subtitles'>subtitles</input><input type='checkbox' checked='true' id='pdf'>pdf</input><br/>";
+       innerHTML = buttonsHTML + innerHTML + buttonsHTML;
        vl.innerHTML= innerHTML;
-       document.getElementById("sendselected0").onclick     =
-           document.getElementById("sendselected1").onclick =
-           (function(co){return function(){updateObj(co);};})(obj);
 
-       document.getElementById("sendselected_subtitles0").onclick     =
-           document.getElementById("sendselected_subtitles1").onclick =
-           (function(co){return function(){co.withSubtitles=true; updateObj(co);};})(obj);
-
+       downloadHandler = (function(co){
+          return function(){
+              co.withSubtitles=document.getElementById('subtitles').checked;
+              co.withPdf=document.getElementById('pdf').checked;
+              updateObj(co);
+          };
+      })(obj);
+       btns = document.getElementsByClassName("sendselected");
+       btns[0].onclick = btns[1].onclick = downloadHandler;
 
    }else{
        vl.innerHTML="Oops ! No <b>Coursera course link</b> found.";
