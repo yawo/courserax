@@ -18,7 +18,7 @@ function updateObj(context_obj){
 
 function init(){
     vl  = document.getElementById("mp4links");
-    //vl.innerHTML = "<input type='checkbox'> No link yet";
+    vl.innerHTML = "<input type='checkbox'> No link yet";
     var checkall = document.getElementById("checkall");
     checkall.checked=true;
     checkall.onchange = function(e){
@@ -48,8 +48,8 @@ self.port.on("progressinfo", function(pi){
 
 self.port.on("showLinks", function(obj) {
    if(document.querySelector("#mp4links table")){
-     console.log("already initiallized")
-     return;
+     //console.log("already initiallized")
+     //return;
    }
    if(obj && obj.links && obj.links.length>0){
        //context_obj = obj;
