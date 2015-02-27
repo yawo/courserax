@@ -46,16 +46,18 @@ self.port.on("progressinfo", function(pi){
 
 });
 
+
+self.port.on("noLinks", function() {
+       vl  = document.getElementById("mp4links");
+       vl.textContent = "---";
+       console.log("noLinks...");
+});
+
 self.port.on("showLinks", function(obj) {
-   if(document.querySelector("#mp4links table")){
-     //console.log("already initiallized")
-     //return;
-   }
+   vl  = document.getElementById("mp4links");
    if(obj && obj.links && obj.links.length>0){
        //context_obj = obj;
-       vl  = document.getElementById("mp4links");
        //vl.innerHTML = "";
-       if(document.getElementById("mp4links"))
        var innerHTML = "<table border='0'>";
        for(i=0;i<obj.links.length;i++){
             var section = obj.links[i];
@@ -85,7 +87,7 @@ self.port.on("showLinks", function(obj) {
        btns[0].onclick = btns[1].onclick = downloadHandler;
 
    }else{
-       vl.innerHTML="Oops ! No <b>Coursera course link</b> found.";
+       vl.textContent="Oops ! No <b>Coursera course link</b> found.";
    }
 
    console.log("shown links "+obj);

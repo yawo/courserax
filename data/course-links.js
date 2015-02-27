@@ -20,7 +20,7 @@ self.port.on("getLinks", function() {
                 el.querySelector(".course-lecture-item-resource a:last-child").getAttribute('href'), //mp4
                 true,
                 getHref(el.querySelector(".course-lecture-item-resource a[title='Subtitles (srt)']")), //srt
-                getHref(el.querySelector(".course-lecture-item-resource a[title='Script PDF']")) //pdf
+                getHref(el.querySelector(".course-lecture-item-resource a[href$='.pdf']")) //pdf
               ]
           });
           sec['slinks']=slinks;
