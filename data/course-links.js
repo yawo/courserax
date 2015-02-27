@@ -25,14 +25,14 @@ self.port.on("getLinks", function() {
           });
           sec['slinks']=slinks;
         }
-        console.log("sec",sec.slinks.length);
+        //console.log("sec",sec.slinks.length);
 
         links.push(sec);
   }
-  //console.log("sections",sections.length,"links",links);
+  ////console.log("sections",sections.length,"links",links);
   if(links && links.length>0){
     self.port.emit("gotLinks", {"links":links,"window":null});
-    //console.log("course-links",element);
+    ////console.log("course-links",element);
   }
 });
 

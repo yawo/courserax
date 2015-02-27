@@ -10,7 +10,7 @@ function updateObj(context_obj){
             if(chk.checked===true)n++;
         }
     }
-    console.log("Emitting selectedLinks. n=",n);
+    //console.log("Emitting selectedLinks. n=",n);
     self.port.emit("selectedLinks",context_obj);
 }
 
@@ -50,7 +50,7 @@ self.port.on("progressinfo", function(pi){
 self.port.on("noLinks", function() {
        vl  = document.getElementById("mp4links");
        vl.textContent = "---";
-       console.log("noLinks...");
+       //console.log("noLinks...");
 });
 
 self.port.on("showLinks", function(obj) {
@@ -90,6 +90,6 @@ self.port.on("showLinks", function(obj) {
        vl.textContent="Oops ! No <b>Coursera course link</b> found.";
    }
 
-   console.log("shown links "+obj);
+   //console.log("shown links "+obj);
 
 });
