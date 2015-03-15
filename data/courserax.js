@@ -15,7 +15,6 @@ function updateObj(context_obj){
 }
 
 
-
 function init(){
     vl  = document.getElementById("mp4links");
     vl.innerHTML = "<input type='checkbox'> No link yet";
@@ -27,6 +26,7 @@ function init(){
           myNodeList[i].checked = checkall.checked;
         }
     };
+    
 }
 
 
