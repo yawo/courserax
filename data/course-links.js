@@ -24,7 +24,12 @@ self.port.on("getLinks", function() {
                 el.querySelector(".course-lecture-item-resource a:last-child").getAttribute('href'), //mp4
                 true,
                 getHref(el.querySelector(".course-lecture-item-resource a[title='Subtitles (srt)']")), //srt
-                getHref(el.querySelector(".course-lecture-item-resource a[href$='.pdf']")) //pdf
+                getHref(el.querySelector(".course-lecture-item-resource a[href$='.pdf']:nth-child(1)")), //pdf
+                getHref(el.querySelector(".course-lecture-item-resource a[href$='.pdf']:nth-child(2)")), //pdf
+                getHref(el.querySelector(".course-lecture-item-resource a[href$='.pdf']:nth-child(3)")), //pdf
+                getHref(el.querySelector(".course-lecture-item-resource a[href$='.pdf']:nth-child(4)")), //pdf
+                getHref(el.querySelector(".course-lecture-item-resource a[title='Subtitles (text)']")), //txt
+                getHref(el.querySelector(".course-lecture-item-resource a[href$='.pptx']")) //pptx
               ]
           });
           sec['slinks']=slinks;
@@ -122,7 +127,7 @@ function showLinks(obj){
             }
         }
        innerHTML += "</table>"
-       buttonsHTML ="<button class='sendselected btn btn-primary' value='Download video only' >Download </button> with <input type='checkbox' checked='true' id='subtitles'> <b> subtitles </b></input><input type='checkbox' checked='true' id='pdf'> <b> pdf </b></input><br/><br/>";
+       buttonsHTML ="<button class='sendselected btn btn-primary' value='Download video only' >Download </button> with <input type='checkbox' checked='true' id='subtitles'> <b> subtitles </b></input><input type='checkbox' checked='true' id='pdf'> <b> pdfs </b></input><input type='checkbox' checked='true' id='pptx'> <b> pptx </b></input><br/><br/>";
        innerHTML = buttonsHTML + innerHTML + buttonsHTML;
        $(vl).html(innerHTML);
 
@@ -130,6 +135,7 @@ function showLinks(obj){
           return function(){
               co.withSubtitles=document.getElementById('subtitles').checked;
               co.withPdf=document.getElementById('pdf').checked;
+              co.withPptx=document.getElementById('pptx').checked;
               updateObj(co);
           };
       })(obj);
